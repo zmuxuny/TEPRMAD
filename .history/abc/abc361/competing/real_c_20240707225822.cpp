@@ -45,7 +45,10 @@ long long fun2(vector<long long> &a, int n, int k)
 
     return ans;
 }
-int main()
+3 1 5 4 9
+
+    1 3 4 5 9 int
+    main()
 {
     long long n, k;
     cin >> n >> k;
