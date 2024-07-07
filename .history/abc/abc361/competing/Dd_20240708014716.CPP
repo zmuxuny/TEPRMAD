@@ -16,10 +16,6 @@ struct State
     {
         return cost + heuristic < other.cost + other.heuristic;
     }
-    bool operator>(const State &other) const
-    {
-        return cost + heuristic > other.cost + other.heuristic;
-    }
 };
 
 // 启发式函数：计算当前状态到目标状态的差异
@@ -58,7 +54,7 @@ int solve(const string &S, const string &T)
 
         // 枚举相邻状态
         int dot_index = cur.s.find('.');
-        for (int i = 0; i < cur.s.size() - 1; ++i)
+        for (int i = 0; i < cur.s.size() - 2; ++i)
         {
 
             string next = cur.s;

@@ -16,10 +16,6 @@ struct State
     {
         return cost + heuristic < other.cost + other.heuristic;
     }
-    bool operator>(const State &other) const
-    {
-        return cost + heuristic > other.cost + other.heuristic;
-    }
 };
 
 // 启发式函数：计算当前状态到目标状态的差异
@@ -50,7 +46,7 @@ int solve(const string &S, const string &T)
     {
         State cur = pq.top();
         pq.pop();
-        cout << "now: " << cur.s << endl;
+        // cout << "now: " << cur.s << endl;
         if (cur.s == T)
         {
             return cur.cost;
@@ -70,7 +66,7 @@ int solve(const string &S, const string &T)
             if (!cost.count(next) || new_cost < cost[next])
             {
                 cost[next] = new_cost;
-                pq.push({next, new_cost, new_cost + heuristic(next, T)});
+                pq.push({next, new_cost, heuristic(next, T)});
             }
         }
     }
